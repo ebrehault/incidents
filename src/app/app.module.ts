@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -13,6 +14,7 @@ import {
   MatSelectModule,
 } from '@angular/material';
 
+import { ServiceService } from './service.service';
 import { AppComponent } from './app.component';
 import { IncidentFormComponent } from './incident-form/incident-form.component';
 
@@ -26,6 +28,7 @@ import { IncidentFormComponent } from './incident-form/incident-form.component';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     MatFormFieldModule,
     MatTabsModule,
     MatDatepickerModule,
@@ -35,7 +38,7 @@ import { IncidentFormComponent } from './incident-form/incident-form.component';
     MatNativeDateModule,
     MatSelectModule,
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

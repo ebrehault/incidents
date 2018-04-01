@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from '../service.service';
 
 @Component({
   selector: 'app-incident-form',
@@ -9,6 +10,8 @@ export class IncidentFormComponent implements OnInit {
 
   selectedTab = 0;
   data: any = {};
+
+  constructor(public service: ServiceService) {}
 
   ngOnInit() {
     this.data = {
@@ -24,6 +27,9 @@ export class IncidentFormComponent implements OnInit {
   save() {
     console.log(this.data);
     localStorage.setItem('author', this.data.author);
+    this.service.save(this.data).subscribe(() => {
+      console.log('ok');
+    })
   }
 
   next() {
