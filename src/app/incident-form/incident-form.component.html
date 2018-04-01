@@ -1,0 +1,56 @@
+<form #f="ngForm" (submit)="save()">
+  <mat-tab-group [selectedIndex]="selectedTab">
+    <mat-tab label="Quand ?">
+      <mat-form-field>
+        <input matInput placeholder="Mon prénom" [(ngModel)]="data.author" name="author">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="La date"
+          [(ngModel)]="data.date" name="date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select placeholder="Période" [(ngModel)]="data.period" name="period">
+          <mat-option value="accueil matin">Accueil du matin</mat-option>
+          <mat-option value="recre 1 matin">Récréation 1 du matin</mat-option>
+          <mat-option value="recre 2 matin">Récréation 1 du matin</mat-option>
+          <mat-option value="accueil apm">Accueil de l'après-midi</mat-option>
+          <mat-option value="recre 1 apm">Récréation 1 de l'après-midi</mat-option>
+          <mat-option value="recre 2 apm">Récréation 2 de l'après-midi</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-tab>
+    <mat-tab label="Quoi ?">
+      <p>Ce que j'ai observé</p>
+      <mat-radio-group [(ngModel)]="data.observation" name="observation">
+        <mat-radio-button value="RAS">Rien à signaler</mat-radio-button><br/>
+        <mat-radio-button value="Violence verbale">Violence verbale</mat-radio-button><br/>
+        <mat-radio-button value="Violence physique">Violence physique</mat-radio-button><br/>
+      </mat-radio-group>
+      <p>Ce que j'ai fait</p>
+      <mat-radio-group [(ngModel)]="data.role" name="role">
+        <mat-radio-button value="temoin">J'en ai été témoin</mat-radio-button><br/>
+        <mat-radio-button value="intervenu">Je suis intervenu</mat-radio-button><br/>
+      </mat-radio-group>
+      <p>Comment cela s'est terminé</p>
+      <mat-radio-group [(ngModel)]="data.solution" name="solution">
+        <mat-radio-button value="ne sais pas">Je ne sais pas si le problème a été réglé, un autre enseignant a géré.</mat-radio-button><br/>
+        <mat-radio-button value="immediat">Problème réglé immédiatement (discussion et/ou sanction et/ou réparation).</mat-radio-button><br/>
+        <mat-radio-button value="non regle">Problème pas entièrement réglé, il y a des suites à prévoir (sanction longue et/ou réparation en décalé).</mat-radio-button><br/>
+      </mat-radio-group>
+    </mat-tab>
+    <mat-tab label="Qui ?">
+      <mat-form-field>
+        <input matInput
+          placeholder="Prénoms des enfants agresseurs ou de tous les enfants si l'agression venait des 2 côtés."
+          [(ngModel)]="data.enfants" name="enfants">
+      </mat-form-field>
+      <p>Préciser l'initiale du nom de famille si besoin.</p>
+      <p>Préciser la classe si possible.</p>
+    </mat-tab>
+  </mat-tab-group>
+  <button mat-raised-button (click)="previous()" [disabled]="selectedTab === 0"><</button>
+  <button mat-raised-button (click)="save(f.value)" *ngIf="isValid()">Enregistrer</button>
+  <button mat-raised-button (click)="next()" [disabled]="selectedTab === 2">></button>
+</form>
