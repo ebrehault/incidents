@@ -45,6 +45,7 @@ export class IncidentFormComponent implements OnInit {
     this.service.save(this.data).subscribe(() => {
       this.loading = false;
       this.router.navigate(['/']);
+      this.snackbar.open('Merci', null, {duration: 2000});
     }, () => {
       this.loading = false;
       this.snackbar.open("Une erreur s'est produite pendant l'enregistrement.", null, {duration: 2000})
