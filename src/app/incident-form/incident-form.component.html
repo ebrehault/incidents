@@ -23,30 +23,31 @@
     </mat-tab>
     <mat-tab label="Quoi ?">
       <mat-radio-group [(ngModel)]="data.observation" name="observation">
-        <mat-radio-button value="RAS">Rien à signaler</mat-radio-button><br/>
-        <mat-radio-button value="Violence verbale">Violence verbale</mat-radio-button><br/>
-        <mat-radio-button value="Violence physique">Violence physique</mat-radio-button><br/>
+        <mat-radio-button value="RAS">Rien à signaler</mat-radio-button>
+        <mat-radio-button value="Violence verbale">Violence verbale</mat-radio-button>
+        <mat-radio-button value="Violence physique">Violence physique</mat-radio-button>
       </mat-radio-group>
     </mat-tab>
     <mat-tab label="Quelle action ?" *ngIf="data.observation && data.observation !== 'RAS'">
-      <p>Ce que j'ai fait</p>
+      <p>Ce que j'ai fait :</p>
       <mat-radio-group [(ngModel)]="data.role" name="role">
-        <mat-radio-button value="temoin">J'en ai été témoin.</mat-radio-button><br/>
-        <mat-radio-button value="intervenu">Je suis intervenu.</mat-radio-button><br/>
+        <mat-radio-button value="temoin">J'en ai été témoin.</mat-radio-button>
+        <mat-radio-button value="intervenu">Je suis intervenu.</mat-radio-button>
       </mat-radio-group>
-      <p>Comment cela s'est terminé</p>
+      <p>Comment cela s'est terminé :</p>
       <mat-radio-group [(ngModel)]="data.solution" name="solution">
-        <mat-radio-button value="ne sais pas">Je ne sais pas si le problème a été réglé, un autre enseignant a géré.</mat-radio-button><br/>
-        <mat-radio-button value="immediat">Problème réglé immédiatement (discussion et/ou sanction et/ou réparation).</mat-radio-button><br/>
-        <mat-radio-button value="non regle">Problème pas entièrement réglé, il y a des suites à prévoir (sanction longue et/ou réparation en décalé).</mat-radio-button><br/>
+        <mat-radio-button value="ne sais pas">Je ne sais pas si le problème a été réglé, un autre enseignant a géré.</mat-radio-button>
+        <mat-radio-button value="immediat">Problème réglé immédiatement (discussion et/ou sanction et/ou réparation).</mat-radio-button>
+        <mat-radio-button value="non regle">Problème pas entièrement réglé, il y a des suites à prévoir (sanction longue et/ou réparation en décalé).</mat-radio-button>
       </mat-radio-group>
     </mat-tab>
     <mat-tab label="Qui ?" *ngIf="data.observation && data.observation !== 'RAS'">
       <mat-form-field>
         <input matInput
-          placeholder="Prénoms des enfants agresseurs ou de tous les enfants si l'agression venait des 2 côtés."
+          placeholder="Prénoms des enfants"
           [(ngModel)]="data.enfants" name="enfants">
       </mat-form-field>
+      <p>Préciser les prénoms des enfants agresseurs ou de tous les enfants si l'agression venait des 2 côtés.</p>
       <p>Préciser l'initiale du nom de famille si besoin.</p>
       <p>Préciser la classe si possible.</p>
     </mat-tab>
