@@ -14,7 +14,7 @@
         <mat-select placeholder="Période" [(ngModel)]="data.period" name="period">
           <mat-option value="accueil matin">Accueil du matin</mat-option>
           <mat-option value="recre 1 matin">Récréation 1 du matin</mat-option>
-          <mat-option value="recre 2 matin">Récréation 1 du matin</mat-option>
+          <mat-option value="recre 2 matin">Récréation 2 du matin</mat-option>
           <mat-option value="accueil apm">Accueil de l'après-midi</mat-option>
           <mat-option value="recre 1 apm">Récréation 1 de l'après-midi</mat-option>
           <mat-option value="recre 2 apm">Récréation 2 de l'après-midi</mat-option>
@@ -31,8 +31,8 @@
     <mat-tab label="Quelle action ?" *ngIf="data.observation && data.observation !== 'RAS'">
       <p>Ce que j'ai fait</p>
       <mat-radio-group [(ngModel)]="data.role" name="role">
-        <mat-radio-button value="temoin">J'en ai été témoin</mat-radio-button><br/>
-        <mat-radio-button value="intervenu">Je suis intervenu</mat-radio-button><br/>
+        <mat-radio-button value="temoin">J'en ai été témoin.</mat-radio-button><br/>
+        <mat-radio-button value="intervenu">Je suis intervenu.</mat-radio-button><br/>
       </mat-radio-group>
       <p>Comment cela s'est terminé</p>
       <mat-radio-group [(ngModel)]="data.solution" name="solution">

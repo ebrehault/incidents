@@ -9,7 +9,7 @@ export class ServiceService {
   constructor(public http: HttpClient) { }
 
   save(data: any): Observable<any> {
-    const path = 'http://216.189.147.86/myapp/';
+    const path = 'https://cloud.brehault.net/myapp/';
     return this.http.post(path, data);
   }
 }

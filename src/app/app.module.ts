@@ -42,7 +42,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('/incidents/ngsw-worker.js', {enabled: environment.production}),
     BrowserAnimationsModule,
     RouterModule.forRoot(routes, {useHash: true}),
     FormsModule,
