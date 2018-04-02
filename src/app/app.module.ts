@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,21 +13,35 @@ import {
   MatRadioModule,
   MatNativeDateModule,
   MatSelectModule,
+  MatProgressSpinnerModule,
+  MatSnackBarModule,
 } from '@angular/material';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 import { ServiceService } from './service.service';
 import { AppComponent } from './app.component';
 import { IncidentFormComponent } from './incident-form/incident-form.component';
+import { HomeComponent } from './home/home.component';
 
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'form', component: IncidentFormComponent},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    IncidentFormComponent
+    IncidentFormComponent,
+    HomeComponent,
+  ],
+  entryComponents: [
+    IncidentFormComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    RouterModule.forRoot(routes, {useHash: true}),
     FormsModule,
     HttpClientModule,
     MatFormFieldModule,
@@ -37,8 +52,13 @@ import { IncidentFormComponent } from './incident-form/incident-form.component';
     MatRadioModule,
     MatNativeDateModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
   ],
-  providers: [ServiceService],
+  providers: [
+    ServiceService,
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

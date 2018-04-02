@@ -22,12 +22,13 @@
       </mat-form-field>
     </mat-tab>
     <mat-tab label="Quoi ?">
-      <p>Ce que j'ai observé</p>
       <mat-radio-group [(ngModel)]="data.observation" name="observation">
         <mat-radio-button value="RAS">Rien à signaler</mat-radio-button><br/>
         <mat-radio-button value="Violence verbale">Violence verbale</mat-radio-button><br/>
         <mat-radio-button value="Violence physique">Violence physique</mat-radio-button><br/>
       </mat-radio-group>
+    </mat-tab>
+    <mat-tab label="Quelle action ?" *ngIf="data.observation && data.observation !== 'RAS'">
       <p>Ce que j'ai fait</p>
       <mat-radio-group [(ngModel)]="data.role" name="role">
         <mat-radio-button value="temoin">J'en ai été témoin</mat-radio-button><br/>
@@ -40,7 +41,7 @@
         <mat-radio-button value="non regle">Problème pas entièrement réglé, il y a des suites à prévoir (sanction longue et/ou réparation en décalé).</mat-radio-button><br/>
       </mat-radio-group>
     </mat-tab>
-    <mat-tab label="Qui ?">
+    <mat-tab label="Qui ?" *ngIf="data.observation && data.observation !== 'RAS'">
       <mat-form-field>
         <input matInput
           placeholder="Prénoms des enfants agresseurs ou de tous les enfants si l'agression venait des 2 côtés."
@@ -51,6 +52,10 @@
     </mat-tab>
   </mat-tab-group>
   <button mat-raised-button (click)="previous()" [disabled]="selectedTab === 0"><</button>
-  <button mat-raised-button (click)="save(f.value)" *ngIf="isValid()">Enregistrer</button>
-  <button mat-raised-button (click)="next()" [disabled]="selectedTab === 2">></button>
+  <button mat-raised-button color="primary" (click)="save(f.value)" *ngIf="isValid()">Enregistrer</button>
+  <button mat-raised-button (click)="next()"
+  [disabled]="selectedTab === 3 || (selectedTab === 1 && (!data.observation || data.observation === 'RAS'))">></button>
 </form>
+<div *ngIf="loading" class="spinner">
+  <mat-spinner></mat-spinner>
+</div>
