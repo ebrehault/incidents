@@ -1,7 +1,7 @@
 {
-    "short_name": "CYR",
-    "name": "Application CYR",
-    "start_url": "/",
+    "short_name": "Incidents CYR",
+    "name": "Incidents CYR",
+    "start_url": "/incidents/",
 
     "theme_color": "#f48c5b",
     "background_color": "#ffffff",
@@ -11,10 +11,14 @@
 
     "icons": [
         {
-            "src": "/assets/icon-512x512.png",
+            "src": "/incidents/assets/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/incidents/assets/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ]
-
 }
