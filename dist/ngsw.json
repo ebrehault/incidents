@@ -1,0 +1,41 @@
+{
+  "configVersion": 1,
+  "index": "/incidents/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "urls": [
+        "/incidents/favicon.ico",
+        "/incidents/index.html",
+        "/incidents/inline.318b50c57b4eba3d437b.bundle.js",
+        "/incidents/main.05417be71f0a63b2cef3.bundle.js",
+        "/incidents/polyfills.77d59861e39435768676.bundle.js",
+        "/incidents/styles.ecebe2a9e22c4a42a7a3.bundle.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "urls": [
+        "/incidents/assets/icon-256x256.png",
+        "/incidents/assets/icon-512x512.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/incidents/inline.318b50c57b4eba3d437b.bundle.js": "998c6060446975e566fd17509558ddc68d72eec3",
+    "/incidents/assets/icon-256x256.png": "32b56936d3ac2a9907a43425200321e98e9eb8b4",
+    "/incidents/main.05417be71f0a63b2cef3.bundle.js": "ae9de66d7ba235e1019f68f385215d8a223cf55a",
+    "/incidents/assets/icon-512x512.png": "35841af5f5986fd1cb5c5f31cd72971d0d513b1d",
+    "/incidents/polyfills.77d59861e39435768676.bundle.js": "beb3f7129447fb464639e25447ceb200fa2ba87e",
+    "/incidents/styles.ecebe2a9e22c4a42a7a3.bundle.css": "c69c9fb56d87226061404a62e993505cd1f76846",
+    "/incidents/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
+    "/incidents/index.html": "99ce8ce70ee2ce0a4cbab1935933d662fdfad9af"
+  }
+}
