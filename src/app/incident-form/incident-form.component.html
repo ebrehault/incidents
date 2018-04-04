@@ -55,7 +55,7 @@
   <button mat-raised-button (click)="previous()" [disabled]="selectedTab === 0"><</button>
   <button mat-raised-button color="primary" (click)="save(f.value)" *ngIf="isValid()">Enregistrer</button>
   <button mat-raised-button (click)="next()"
-  [disabled]="selectedTab === 3 || (selectedTab === 1 && (!data.observation || data.observation === 'RAS'))">></button>
+  [disabled]="cantGoNext()">></button>
 </form>
 <div *ngIf="loading" class="spinner">
   <mat-spinner></mat-spinner>

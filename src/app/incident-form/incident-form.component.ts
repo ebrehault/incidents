@@ -60,4 +60,17 @@ export class IncidentFormComponent implements OnInit {
     this.selectedTab --;
   }
 
+  cantGoNext() {
+    if (this.selectedTab === 3) {
+      return true;
+    }
+    if (this.selectedTab === 1 && (!this.data.observation || this.data.observation === 'RAS')) {
+      return true;
+    }
+    if (this.selectedTab === 0 && (!this.data.author || !this.data.date || !this.data.period)) {
+      return true;
+    }
+    return false;
+  }
+
 }
