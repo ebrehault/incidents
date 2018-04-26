@@ -39,7 +39,6 @@ export class IncidentFormComponent implements OnInit {
   }
 
   save() {
-    console.log(this.data);
     localStorage.setItem('author', this.data.author);
     this.loading = true;
     this.service.save(this.data).subscribe(() => {
